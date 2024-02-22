@@ -9,9 +9,12 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <nav className='w-full flex py-6 justify-between items-center navbar'>
-      <Image src={logo} alt='hoobank' className='w-[124px] h-[32px]'/>
-      <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
+    <header>
+    <nav className='w-full fixed top-0 flex justify-between py-6 items-center navbar'>
+      <div className='w-1/2 justify-start'>
+        <Image src={logo} alt='hoobank' className='w-[124px] h-[32px]'/>
+      </div>
+      <ul className='list-none sm:flex hidden justify-center items-center flex-1 pr-1'>
         {navLinks.map((nav, i) => (
           <li 
             key={nav.id}
@@ -46,6 +49,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </header>
   )
 }
 
