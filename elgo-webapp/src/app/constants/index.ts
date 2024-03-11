@@ -29,33 +29,30 @@
       id: "pricing",
       title: "Pricing",
     },
-    {
-      id: "signIn",
-      title: "Sign In",
-    },
+    
   ];
   
   export const features = [
     {
       id: "feature-1",
-      icon: star,
-      title: "Rewards",
+      icon: "30%",
+      title: "Global Energy Consumption",
       content:
-        "The best credit cards offer some tantalizing combinations of promotions and prizes",
+        "Our opportunity lies in  F&B sector’s contribution to 30% of global energy consumption.",
     },
     {
       id: "feature-2",
-      icon: shield,
-      title: "100% Secured",
+      icon: "38%",
+      title: "Energy Costs for F&B",
       content:
-        "We take proactive steps make sure your information and transactions are secure.",
+        "Energy costs amount up to  38% of F&B outlets pre tax profit.",
     },
     {
       id: "feature-3",
-      icon: send,
-      title: "Balance Transfer",
+      icon: "$0.33",
+      title: "Energy Costs per Meal",
       content:
-        "A balance transfer credit card can save you a lot of money in interest charges.",
+        "A restaurant spends 33c on energy on every meal they serve.",
     },
   ];
   
