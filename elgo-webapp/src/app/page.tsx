@@ -21,14 +21,11 @@ export default function Home() {
         <div className={`${styles.boxWidth}`}>
           <Business />
           <Billing />
+          <CardDeal />
         </div>
       </div>
-      
       <CTA />
-      
       <Stats />
-      <CardDeal />
-      <Clients />
     </main>
   );
 }

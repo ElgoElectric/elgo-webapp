@@ -208,3 +208,10 @@
       logo: dropbox,
     },
   ];
+
+  export const productDesc ={
+    "kapp": "We provide a real-time dashboard that monitors your appliances, offering crystal-clear insights.  But we don't stop there. Our technology detects energy anomalies and forecasts future usage, empowering you to optimize consumption and slash energy bills.",
+    "hvac":"Our system leverages the power of Q-Learning, an AI algorithm, to ensure a comfortable haven for your patrons while keeping your energy costs under control.. No more battling chills or sweltering under the vents.",
+    "fridge":"Our sensors vigilantly detect faults in your system.  The moment trouble arises, you'll be notified instantly.  Better yet, we'll even send an alert to maintenance  – a hands-free approach to keep your business running smoothly.",
+    "light":"Our reinforcement learning algorithm, acts like a sophisticated dimmer switch.  It constantly analyzes environmental factors and comfort levels to orchestrate the perfect lighting scheme, eliminating redundant usage while prioritizing both patron ease."
+  }
