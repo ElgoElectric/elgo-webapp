@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { card } from "../../../public";
+import { hvac } from "../../../public";
 import styles, { layout } from "../constants/style";
 import Image from "next/image";
-import { ProductSlider } from "./ProductSlider";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { productDesc } from "../constants";
 
@@ -15,12 +14,12 @@ const CardDeal = () => {
   return (
     <section className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={`${styles.heading2} text-[42px]`}>
+        <h2 className={`${styles.heading2} text-[41.5px]`}>
           Energy bills got you sweating?{" "}
-          <div className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-[38px]">
+          <div className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
             We analyze,
           </div>
-          <div className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-[38px]">
+          <div className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
             reveal, and unlock savings.
           </div>
         </h2>
@@ -105,7 +104,7 @@ const CardDeal = () => {
         </div>
       </div>
       <div className={layout.sectionImg}>
-        <Image src={card} alt="card" className="w-[100%] h-[100%]" />
+        <Image src={hvac} alt="card" className="w-[100%] h-[100%]" />
       </div>
     </section>
   );
