@@ -7,52 +7,54 @@ export default function Donut() {
 
   useEffect(() => {
     if (chartRef.current) {
-      if (chartRef.current.chart) {
-        chartRef.current.chart.destroy();
+      if ((chartRef.current as any).chart) {
+        (chartRef.current as any).chart.destroy();
       }
 
-      const context = chartRef.current.getContext("2d");
+      const context = (chartRef.current as HTMLCanvasElement | null)?.getContext("2d");
 
-      const newChart = new Chart(context, {
-        type: "doughnut",
-        data: {
-          labels: ["Kitchen Appliances", "Air Conditioning", "Refrigeration", "Lighting"],
-          datasets: [
-            {
-              label: "% of Energy Consumption in Restaurants",
-              data: [28.3, 31.3, 25.3, 15.2],
-              backgroundColor: [
-                "#B2B0EAff",
-                "#8481DDff",
-                "#5752D1ff",
-                "#3C3D99ff",
-                
-              ],
-              borderColor: [
-                "#FFFFFFa0",
-                "#FFFFFFa0",
-                "#FFFFFFa0",
-                "#FFFFFFa0",
-                
-              ],
-              borderWidth: 0,
-              spacing: 3,
-            },
-          ],
-        },
-        options: {
-          // responsive: true
-          plugins: {
-            legend: {
-              display: true,
-              position: "bottom",
-              padding: 20,
+      if (context) {
+        const newChart = new Chart(context, {
+          type: "doughnut",
+          data: {
+            labels: ["Kitchen Appliances", "Air Conditioning", "Refrigeration", "Lighting"],
+            datasets: [
+              {
+                label: "% of Energy Consumption in Restaurants",
+                data: [28.3, 31.3, 25.3, 15.2],
+                backgroundColor: [
+                  "#B2B0EAff",
+                  "#8481DDff",
+                  "#5752D1ff",
+                  "#3C3D99ff",
+                  
+                ],
+                borderColor: [
+                  "#FFFFFFa0",
+                  "#FFFFFFa0",
+                  "#FFFFFFa0",
+                  "#FFFFFFa0",
+                  
+                ],
+                borderWidth: 0,
+                spacing: 3,
+              },
+            ],
+          },
+          options: {
+            // responsive: true
+            plugins: {
+              legend: {
+                display: true,
+                position: "bottom",
+                //padding: 20,
+              },
             },
           },
-        },
-      });
+        });
 
-      chartRef.current.chart = newChart;
+        //chartRef.current.chart = newChart;
+      }
     }
   }, []);
   return (
