@@ -22,10 +22,10 @@ export default function Home() {
           <Business />
           <Billing />
           <CardDeal />
+          <CTA />
         </div>
       </div>
-      <CTA />
-      <Stats />
+      {/* <Stats /> */}
     </main>
   );
 }
