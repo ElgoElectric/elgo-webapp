@@ -13,7 +13,7 @@ export default function KARAnomalyCard() {
             &nbsp;Kitchen
           </div>
           <div className="flex justify-center w-full rounded-md h-[150px] bg-gradient-to-r from-slate-900 to-black mt-5">
-            
+            <div></div>
           </div>
         </div>
       </div>
