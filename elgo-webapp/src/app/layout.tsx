@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./constants/style";
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,12 +22,12 @@ export default function RootLayout({
     <html>
       <UserProvider>
         <body>
-          <div className='bg-primary w-full overflow-hidden'>
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-              <div className={`${styles.boxWidth}`}>
-                <Navbar/>
-              </div>
+          <div className={``}>
+            <div className={`${styles.boxWidth}`}>
+              <Navbar />
             </div>
+          </div>
+          <div className="bg-primary w-full overflow-hidden">
             <main>{children}</main>
             <Footer />
           </div>

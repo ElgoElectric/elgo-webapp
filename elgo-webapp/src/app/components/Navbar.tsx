@@ -4,13 +4,16 @@ import { close, logo, menu } from "../../../public";
 import { navLinks } from "../constants";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "../constants/style";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <header>
-      <nav className="w-full fixed top-0 flex justify-between py-6 items-center navbar z-10 bg-black">
+      <div className={`${styles.paddingX}`}>
+      <nav className="xl:max-w-full w-full fixed top-0 flex justify-between py-6 items-center navbar z-10 bg-black px-6">
+        
         <div className="w-1/2 flex justify-start">
           <Image src={logo} alt="hoobank" className="w-[54px] h-[52px]" />
           <div className="font-poppins font-medium text-[24px] text-white ml-2 flex items-center">
@@ -59,7 +62,9 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        
       </nav>
+      </div>
     </header>
   );
 };
