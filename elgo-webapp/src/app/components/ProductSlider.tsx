@@ -8,7 +8,7 @@ const toggleGroupItemClasses =
   "color-mauve11 data-[state=on]:bg-gradient-to-r from-slate-600  flex h-[35px] w-auto p-2 items-center justify-center bg-slate rounded-md text-base leading-4 focus:z-10";
 
 export function ProductSlider() {
-  const [value, setValue] = React.useState("left");
+  const [value, setValue] = React.useState("hvac");
 
   return (
     <div>
@@ -26,6 +26,7 @@ export function ProductSlider() {
           value="hvac"
           aria-label="Left aligned"
         >
+          
           <div
             className={
               value == "hvac"
@@ -35,6 +36,7 @@ export function ProductSlider() {
           >
             Air Conditioning
           </div>
+          
         </ToggleGroup.Item>
         <ToggleGroup.Item
           className={toggleGroupItemClasses}

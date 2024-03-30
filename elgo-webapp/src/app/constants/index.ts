@@ -13,7 +13,14 @@
     airbnb,
     binance,
     coinbase,
-    dropbox
+    dropbox,
+    kpp,
+    fauxzan,
+    rmurarishetti,
+    vn,
+    sk,
+    czjie,
+    tx
     } from "../../../public";
   
   export const navLinks = [
@@ -215,3 +222,79 @@
     "fridge":"Our sensors vigilantly detect faults in your system.  The moment trouble arises, you'll be notified instantly.  Better yet, we'll even send an alert to maintenance  – a hands-free approach to keep your business running smoothly.",
     "light":"Our reinforcement learning algorithm, acts like a sophisticated dimmer switch.  It constantly analyzes environmental factors and comfort levels to orchestrate the perfect lighting scheme, eliminating redundant usage while prioritizing both patron ease."
   }
+
+  export const pricingPackages =[
+    {
+      id: "pricing-1",
+      title: "Starter Elgo Package",
+      recommended: "Basic",
+      content:["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 3 Devices)", "User Comfort Based Lighting Optimisation"],
+      pricing:"+$0",
+      buttontext:"Get Started",
+      elgoPackage: false
+    },
+    {
+      id: "pricing-2",
+      title:"Advanced Elgo Package",
+      recommended:"Recommended",
+      content:["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 7 Devices)", "User Comfort Based Lighting Optimisation", "24/7 Mechanical Service"],
+      pricing:"+$100",
+      buttontext:"Upgrade Now",
+      elgoPackage: true
+    },
+    {
+      id: "pricing-3",
+      title:"Custom Elgo Package",
+      recommended:"Premium",
+      content:["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 7 Devices)", "User Comfort Based Lighting Optimisation", "24/7 Mechanical Service", "Custom Model for every device in Kitchen", "Regular & Custom Software Updates"],
+      pricing:"+$250",
+      buttontext:"Choose Plan",
+      elgoPackage: false
+    }
+  ]
+
+  export const teamMembers = [
+    {
+      id: "team-1",
+      name: "Kaveri Priya Putti",
+      title: "Software Engineer",
+      img: kpp,
+    },
+    {
+      id: "team-2",
+      name: "Mohammed Fauzaan",
+      title: "Backend Engineer",
+      img: fauxzan,
+    },
+    {
+      id: "team-3",
+      name: "Rohit Murarishetti",
+      title: "Product Engineer",
+      img: rmurarishetti,
+    },
+    {
+      id: "team-7",
+      name: "Visshal Natarajan",
+      title: "Cloud Engineer",
+      img: vn,
+    },
+    {
+      id: "team-4",
+      name: "Sanat Khandekar",
+      title: "Algorithms Engineer",
+      img: sk,
+    },
+    {
+      id: "team-5",
+      name: "Chow Zi Jie",
+      title: "Electrical Engineer",
+      img: czjie,
+    },
+    {
+      id: "team-6",
+      name: "Tan Xinlin",
+      title: "Hardware Engineer",
+      img: tx,
+    },
+    
+  ];

@@ -24,6 +24,13 @@ import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
 import hvac from "./hvac.png";
+import rmurarishetti from "./Rohit Raghuram Murarishetti_E02.jpg";
+import sk from "./Sanat Khandekar_E02.jpg";
+import kpp from "./Kaveri Priya Putti_E02.jpg";
+import czjie from "./Chow Zi Jie_E02.jpg";
+import tx from "./Tan Xinlin_E02.jpg";
+import fauxzan from "./Mohammed Fauzaan Mahaboob_E02.jpg";
+import vn from "./Visshal Natarajan_E02.jpg";
 
 export {
   airbnb,
@@ -52,4 +59,11 @@ export {
   people02,
   people03,
   hvac,
+  rmurarishetti,
+  sk,
+  kpp,
+  czjie,
+  tx,
+  fauxzan,
+  vn,
 };

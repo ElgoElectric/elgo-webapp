@@ -2,12 +2,11 @@ import Image from "next/image";
 import Billing from "./components/Billing";
 import Business from "./components/Business";
 import CTA from "./components/CTA";
-import Stats from "./components/Stats";
 import CardDeal from "./components/CardDeal";
-import Clients from "./components/Clients";
 import Hero from "./components/Hero";
 import styles from "./constants/style";
-import Donut from "./components/Donut";
+import Pricing from "./components/Pricing";
+import Team from "./components/Team";
 
 export default function Home() {
   return (
@@ -22,6 +21,8 @@ export default function Home() {
           <Business />
           <Billing />
           <CardDeal />
+          <Pricing />
+          <Team />
           <CTA />
         </div>
       </div>

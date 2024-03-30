@@ -23,7 +23,7 @@ export default function RootLayout({
       <UserProvider>
         <body>
           <div className={``}>
-            <div className={`${styles.boxWidth}`}>
+            <div className={`$xl:max-w-full w-full`}>
               <Navbar />
             </div>
           </div>

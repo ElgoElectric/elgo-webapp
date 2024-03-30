@@ -104,7 +104,7 @@ const CardDeal = () => {
         </div>
       </div>
       <div className={layout.sectionImg}>
-        <Image src={hvac} alt="card" className="w-[100%] h-[100%]" />
+        <Image src={hvac} alt="card" className="w-full h-auto" />
       </div>
     </section>
   );
