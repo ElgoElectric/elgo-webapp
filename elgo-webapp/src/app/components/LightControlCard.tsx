@@ -11,6 +11,24 @@ const toggleGroupItemClasses =
 export default function LightControlCard() {
   const [Light, setLight] = useState<boolean>(false);
 
+  async function turnOnLight() {
+    setLight(true);
+    const lightstate = await fetch("http://44.203.163.147:3000/togglePower?isPowerOn=true&plugID=shellyplusplugs-d4d4daec6c98");
+    const response = await lightstate.json();
+    if (response.success) {
+      console.log("Light is on");
+    }
+  }
+
+  async function turnOffLight() {
+    setLight(false);
+    const lightstate = await fetch("http://44.203.163.147:3000/togglePower?isPowerOn=false&plugID=shellyplusplugs-d4d4daec6c98");
+    const response = await lightstate.json();
+    if (response.success) {
+      console.log("Light is off");
+    }
+  }
+
   return (
     <div className="w-full h-full flex flex-col rounded-md bg-gradient-to-r from-slate-800 via-white-100 to-slate-900 p-5">
       <div className="text-white text-2xl font-bold">Lighting</div>
@@ -30,6 +48,7 @@ export default function LightControlCard() {
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="left"
+              onClick={turnOffLight}
               aria-label="Left aligned"
             >
               <RiLightbulbLine className="text-white text-2xl font-bold" />
@@ -37,6 +56,7 @@ export default function LightControlCard() {
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="center"
+              onClick={turnOnLight}
               aria-label="Center aligned"
             >
               <RiLightbulbFlashLine className="text-white text-2xl font-bold" />
@@ -44,6 +64,7 @@ export default function LightControlCard() {
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="right"
+              onClick={turnOnLight}
               aria-label="Right aligned"
             >
               <RiLightbulbFlashFill className="text-white text-2xl font-bold" />
