@@ -53,7 +53,7 @@ export default function Donut() {
           },
         });
 
-        //chartRef.current.chart = newChart;
+        (chartRef.current as any).chart = newChart;
       }
     }
   }, []);
