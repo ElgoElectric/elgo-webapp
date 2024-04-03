@@ -89,11 +89,11 @@ export default function KARAnomalyCard() {
 
                 fill: {
                   target: "origin",
-                  above: "#7ed957", // Area will be red above the origin    // And blue below the origin
+                  above: "rgba(86,194,16, 0.5)", // Area will be red above the origin    // And blue below the origin
                 },
 
                 //backgroundColor: ["black"],
-                borderColor: ["#7ed957"],
+                borderColor: "rgb(86,194,16)",
                 borderWidth: 1,
               },
             ],
@@ -112,7 +112,7 @@ export default function KARAnomalyCard() {
                 },
                 border: {
                   display: true,
-                  color: "rgba((126,217,87, 0.6)",
+                  color: "rgba(255,255,255,1)",
                 },
                 //distribution: 'linear', // Add this line
               },
