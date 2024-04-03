@@ -3,6 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaRegLightbulb } from "react-icons/fa";
+import AnomalyModal from "./AnomalyModal";
 
 export default function ConsumptionCard() {
   const { user, error, isLoading } = useUser();
@@ -28,6 +29,9 @@ export default function ConsumptionCard() {
           const response = await fetch(
             `https://elgo-backend.vercel.app/datastreams/${device["device_label"]}/energy`
           );
+          if(!response.ok) {
+            continue;
+          }
           const energyData = await response.json();
           device["energy"] = energyData["totalEnergyKWh"];
         }
@@ -37,8 +41,10 @@ export default function ConsumptionCard() {
         //iterate over devices_data["devices"] and sum up the energy consumption
         var totalEnergy = devices_data["devices"].reduce(
           (total: number, option: { energy: string }) => {
-            let energy = parseFloat(option.energy.replace(" kWh", ""));
-            return total + energy;
+            if (option.energy != null) {
+              let energy = parseFloat(option.energy.replace(" kWh", ""));
+              return total + energy;
+            }
           },
           0
         );
@@ -47,7 +53,14 @@ export default function ConsumptionCard() {
         setTotalEnergy(totalEnergy);
       }
     }
+
     getDevices();
+
+    // Then set up the interval to call getDevices every 5 seconds
+    const intervalId = setInterval(getDevices, 5000);
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
   }, [user]);
 
   return (
@@ -71,7 +84,13 @@ export default function ConsumptionCard() {
       <div className="mt-3">
         {options.length === 1 && options[0] === "Choose an option..." ? (
           <div className="animate-spin w-full h-full flex items-center justify-center">
-            <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-indigo-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              aria-hidden="true"
+              className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-indigo-600"
+              viewBox="0 0 100 101"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                 fill="currentColor"
@@ -83,13 +102,15 @@ export default function ConsumptionCard() {
             </svg>
           </div>
         ) : (
-          options.slice(0,2).map((option, index) => (
-            <ConsumptionRow
-              key={index}
-              deviceName={option["device_label"]}
-              consumption={option["energy"]}
-            />
-          ))
+          options
+            .slice(0, 2)
+            .map((option, index) => (
+              <AnomalyModal
+                key={index}
+                deviceName={option["device_label"]}
+                consumption={option["energy"]}
+              />
+            ))
         )}
       </div>
       <div className="flex justify-end mt-1">
@@ -105,25 +126,26 @@ export default function ConsumptionCard() {
   );
 }
 
-interface ConsumptionRowProps {
-  deviceName: string;
-  consumption: string;
-}
+// interface ConsumptionRowProps {
+//   deviceName: string;
+//   consumption: string;
+// }
 
-function ConsumptionRow(props: ConsumptionRowProps) {
-  return (
-    <div className="flex flex-col justify-center my-2">
-      <div className="w-full sm:w-1/2 lg:w-full sm-gap-3 rounded-md hover:bg-gradient-to-r from-indigo-500 via-white-100 to-slate-900">
-        <div className="p-3">
-          <div className="flex justify-between text-white text-sm">
-            <div className="w-auto bg-indigo-600 rounded-full flex items-center justify-center p-1">
-              <FaRegLightbulb className="text-white" />
-            </div>
-            <div>{props.deviceName}</div>
-            <div>{props.consumption}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// function ConsumptionRow(props: ConsumptionRowProps) {
+//   return (
+//     <div className="flex flex-col justify-center my-2">
+//       <div className="w-full sm:w-1/2 lg:w-full sm-gap-3 rounded-md hover:bg-gradient-to-r from-indigo-500 via-white-100 to-slate-900">
+//         <div className="p-3">
+//           <div className="flex justify-between text-white text-sm">
+//             <div className="w-auto bg-indigo-600 rounded-full flex items-center justify-center p-1">
+//               <FaRegLightbulb className="text-white" />
+//             </div>
+//             {/* <AnomalyModal device_label={props.deviceName} /> */}
+//             <div>{props.deviceName}</div>
+//             <div>{props.consumption}</div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

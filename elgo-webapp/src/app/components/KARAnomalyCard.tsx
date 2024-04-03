@@ -25,20 +25,12 @@ export default function KARAnomalyCard() {
   getDevices();
   }, [user]);
 
-  async function getDevices() {
-    if (user && user.email) {
-      const response = await fetch(`https://elgo-backend.vercel.app/users/getByEmail/${user.email}`);
-      const data = await response.json();
-      const user_id = data["user_id"];
-
-      const devices = await fetch(`https://elgo-backend.vercel.app/users/${user_id}/devices/`);
-      const devices_data = await devices.json();
-      setOptions(devices_data["devices"]);
-    }
+  async function getGraph(){
+    console.log("getGraph");
   }
 
   const SelectDemo = () => (
-    <Select.Root onOpenChange={getDevices}>
+    <Select.Root onValueChange={(value)=>getGraph}>
       <Select.Trigger
         className="inline-flex items-center justify-center rounded p-[5px] text-white leading-none h-full w-auto gap-[5px] bg-slate-900 text-white"
         aria-label="Food"

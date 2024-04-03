@@ -9,23 +9,58 @@ const toggleGroupItemClasses =
   "bg-black p-4 data-[state=on]:bg-indigo-600 data-[state=on]:shadow-[0_1px_5px] data-[state=on]:border-[1px] border-white shadow-white flex w-auto p-2 items-center justify-center bg-slate rounded-md text-base leading-4 focus:z-10 text-2xl font-bold hover:shadow-[0_1px_5px] hover:shadow-white";
 
 export default function LightControlCard() {
-  const [Light, setLight] = useState<boolean>(false);
+  const [CurrLightState, setCurrLightState] = useState<string>("0");
+  const [value, setValue] = useState<string>("");
 
-  async function turnOnLight() {
-    setLight(true);
-    const lightstate = await fetch("http://44.203.163.147:3000/togglePower?isPowerOn=true&plugID=shellyplusplugs-d4d4daec6c98");
-    const response = await lightstate.json();
-    if (response.success) {
-      console.log("Light is on");
+  async function LightTransitionLeft(){
+    const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const response = await currPosition.json();
+    setCurrLightState(response.currentLightLevel);
+
+    const transitionPosition = await fetch(`http://44.203.163.147:3000/loglightLevel?lightLevel_current=0&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=0`);
+    const succ = await transitionPosition.ok;
+    if (!succ){
+      console.log("Error Setting to 0.5");
     }
+    
   }
 
-  async function turnOffLight() {
-    setLight(false);
-    const lightstate = await fetch("http://44.203.163.147:3000/togglePower?isPowerOn=false&plugID=shellyplusplugs-d4d4daec6c98");
-    const response = await lightstate.json();
-    if (response.success) {
-      console.log("Light is off");
+  async function LightTransitionCenter(){
+    const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const response = await currPosition.json();
+    setCurrLightState(response.currentLightLevel);
+
+    const transitionPosition = await fetch(`http://44.203.163.147:3000/loglightLevel?lightLevel_current=0.5&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
+    const succ = await transitionPosition.ok;
+    if (!succ){
+      console.log("Error Setting to 0.5");
+    }
+    
+  }
+
+  async function LightTransitionRight(){
+    const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const response = await currPosition.json();
+    setCurrLightState(response.currentLightLevel);
+
+    const transitionPosition = await fetch(`http://44.203.163.147:3000/loglightLevel?lightLevel_current=0.75&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
+    const succ = await transitionPosition.ok;
+    if (!succ){
+      console.log("Error Setting to 0.75");
+    }
+    
+  }
+
+  async function LightResetLogic(){
+    const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const response = await currPosition.json();
+    setCurrLightState(response.currentLightLevel);
+    if(CurrLightState=="0.75"){
+      setValue("right");
+    } else if (CurrLightState=="0.5"){
+      setValue("center");
+    } else if (CurrLightState=="0"){
+      setValue("left");
     }
   }
 
@@ -42,13 +77,16 @@ export default function LightControlCard() {
           <ToggleGroup.Root
             className="inline-flex bg-gradient-to-r from-slate-800 via-white-100 to-slate-900 rounded shadow-[0_2px_10px] shadow-black space-x-1 p-2 mt-2"
             type="single"
-            defaultValue="center"
+            value={value}
+            onValueChange={(value) => {
+              if (value) setValue(value);
+            }}
             aria-label="Text alignment"
           >
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="left"
-              onClick={turnOffLight}
+              onClick={LightTransitionLeft}
               aria-label="Left aligned"
             >
               <RiLightbulbLine className="text-white text-2xl font-bold" />
@@ -56,7 +94,7 @@ export default function LightControlCard() {
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="center"
-              onClick={turnOnLight}
+              onClick={LightTransitionCenter}
               aria-label="Center aligned"
             >
               <RiLightbulbFlashLine className="text-white text-2xl font-bold" />
@@ -64,7 +102,7 @@ export default function LightControlCard() {
             <ToggleGroup.Item
               className={toggleGroupItemClasses}
               value="right"
-              onClick={turnOnLight}
+              onClick={LightTransitionRight}
               aria-label="Right aligned"
             >
               <RiLightbulbFlashFill className="text-white text-2xl font-bold" />
@@ -75,8 +113,8 @@ export default function LightControlCard() {
         </div>
 
         <div className="flex justify-end pt-1 mb-1 mr-1">
-          <button className="border-[1px] text-[10px] p-1 border-indigo-800 bg-indigo-800 hover:border-white hover:bg-indigo-600 rounded-md flex items-center justify-center hover:shadow-[0_1px_5px] hover:shadow-white">
-            Set Recommended Lighting
+          <button onClick={LightResetLogic} className="border-[1px] text-[10px] p-1 border-indigo-800 bg-indigo-800 hover:border-white hover:bg-indigo-600 rounded-md flex items-center justify-center hover:shadow-[0_1px_5px] hover:shadow-white">
+            Update Switch Position
           </button>
         </div>
       </div>

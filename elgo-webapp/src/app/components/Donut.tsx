@@ -58,7 +58,7 @@ export default function Donut() {
     }
   }, []);
   return (
-    <div className="w-1/4 rounded-md bg-gradient-to-r from-slate-800 via-white-100 to-black p-5 ">
+    <div className="w-1/2 rounded-md bg-gradient-to-r from-slate-800 via-white-100 to-black p-5 ">
         <div>
             <h4 className="font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] mb-3">
                     Device Consumption

@@ -17,9 +17,7 @@ export default function DeviceModal() {
 
   async function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("we are here");
     if (userId != "") {
-      console.log("we are here");
       const response = await fetch(
         `https://elgo-backend.vercel.app/devices/createDevice/`,
         {
@@ -50,7 +48,6 @@ export default function DeviceModal() {
 
       const details = await exists.json();
       setUserId(details.user_id);
-      console.log(userId);
     }
   }
 
