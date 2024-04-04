@@ -1,6 +1,6 @@
 "use client";
 import { FaLocationDot } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiLightbulbLine, RiLightbulbFlashLine, RiLightbulbFlashFill } from "react-icons/ri";
 import React from "react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
@@ -43,10 +43,10 @@ export default function LightControlCard() {
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
 
-    const transitionPosition = await fetch(`http://44.203.163.147:3000/loglightLevel?lightLevel_current=0.75&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
+    const transitionPosition = await fetch(`http://44.203.163.147:3000/loglightLevel?lightLevel_current=1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
     const succ = await transitionPosition.ok;
     if (!succ){
-      console.log("Error Setting to 0.75");
+      console.log("Error Setting to 1");
     }
     
   }
@@ -55,7 +55,7 @@ export default function LightControlCard() {
     const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
-    if(CurrLightState=="0.75"){
+    if(CurrLightState=="1"){
       setValue("right");
     } else if (CurrLightState=="0.5"){
       setValue("center");
@@ -63,6 +63,27 @@ export default function LightControlCard() {
       setValue("left");
     }
   }
+
+  useEffect(() => {
+    async function GetLight(){
+      const currPosition = await fetch("http://44.203.163.147:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+      const response = await currPosition.json();
+      setCurrLightState(response.currentLightLevel);
+      if(CurrLightState=="1"){
+        setValue("right");
+      } else if (CurrLightState=="0.5"){
+        setValue("center");
+      } else if (CurrLightState=="0"){
+        setValue("left");
+      }
+    }
+    const intervalId = setInterval(() => {
+      GetLight();
+    }, 5000); // 20000 milliseconds = 20 seconds
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [CurrLightState]);
 
   return (
     <div className="w-full h-full flex flex-col rounded-md bg-gradient-to-r from-slate-800 via-white-100 to-slate-900 p-5">

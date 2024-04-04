@@ -206,7 +206,7 @@ export default function KARAnomalyCard() {
             <div className="w-full h-full">
               <canvas
                 className="w-full h-full"
-                style={{ width: "780px", height: "150px" }}
+                style={{ width: "750px", height: "150px" }}
                 ref={chartRef}
               />
             </div>

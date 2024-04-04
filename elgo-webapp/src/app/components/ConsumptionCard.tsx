@@ -81,7 +81,7 @@ export default function ConsumptionCard() {
           </div>
         </div>
       </div>
-      <div className="mt-3">
+      <div className="mt-3 max-h-[110px] overflow-auto no-scrollbar">
         {options.length === 1 && options[0] === "Choose an option..." ? (
           <div className="animate-spin w-full h-full flex items-center justify-center">
             <svg
@@ -103,7 +103,6 @@ export default function ConsumptionCard() {
           </div>
         ) : (
           options
-            .slice(0, 2)
             .map((option, index) => (
               <AnomalyModal
                 key={index}
