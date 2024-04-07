@@ -1,3 +1,4 @@
+"use client"
 import styles from "../constants/style";
 
 export default function ThreeDeeModel() {

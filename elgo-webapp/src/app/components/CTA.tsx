@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../constants/style'
-import Button from './Button'
 import BookDemo from './BookDemo'
 
 const CTA = () => {
