@@ -13,16 +13,16 @@ interface FeatureCardProps {
 
 const FeatureCard = (props: FeatureCardProps) => (
   <div
-    className={`w-full flex flex-row p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
+    className={`w-full flex flex-col sm:flex-row p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
       props.index !== features.length - 1 ? "mb-6" : "mb-0"
     } feature-card`}
   >
-    <div className={`w-1/4 justify-start items-center flex-row m-3`}>
-      <h4 className="font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] ">
+    <div className={`w-full sm:w-1/4 justify-start items-center flex-row m-3`}>
+      <h4 className="font-poppins font-semibold text-[30px] sm:text-[40px] leading-[43px] sm:leading-[53px]">
         {props.icon}
       </h4>
     </div>
-    <div className="w-1/2 flex flex-col">
+    <div className="w-full sm:w-1/2 flex flex-col">
       <h4 className="font-poppins font-semibold text-[18px] leading-[23px] text-gradient mb-1 bg-gradient-to-r from-indigo-400 to-white inline-block text-transparent bg-clip-text">
         {props.title}
       </h4>

@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import styles from "./constants/style";
 import Pricing from "./components/Pricing";
 import Team from "./components/Team";
+import ThreeDeeModel from "./components/3dm";
 
 export default function Home() {
   return (
@@ -23,10 +24,10 @@ export default function Home() {
           <CardDeal />
           <Pricing />
           <Team />
+          <ThreeDeeModel />
           <CTA />
         </div>
       </div>
-      {/* <Stats /> */}
     </main>
   );
 }
