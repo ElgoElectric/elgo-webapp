@@ -23,7 +23,7 @@ const CardDeal = () => {
             reveal, and unlock savings.
           </div>
         </h2>
-        <div>
+        <div className="mt-4 mr-2">
           <ToggleGroup.Root
             className="inline-flex bg-gradient-to-r from-slate-800 to-black p-2 rounded space-x-px"
             type="single"

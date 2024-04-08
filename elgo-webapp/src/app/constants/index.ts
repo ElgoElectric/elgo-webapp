@@ -52,14 +52,14 @@
       icon: "38%",
       title: "Energy Costs for F&B",
       content:
-        "Energy costs amount up to  38% of F&B outlets pre tax profit.",
+        "38% of Food and Beverage Outlets' pre-tax profits are spent on paying energy bills.",
     },
     {
       id: "feature-3",
       icon: "$0.33",
       title: "Energy Costs per Meal",
       content:
-        "A restaurant spends 33c on energy on every meal they serve.",
+        "An average restaurant spends about 33c on every meal they serve on energy.",
     },
   ];
   
@@ -217,10 +217,10 @@
   ];
 
   export const productDesc ={
-    "kapp": "We provide a real-time dashboard that monitors your appliances, offering crystal-clear insights.  But we don't stop there. Our technology detects energy anomalies and forecasts future usage, empowering you to optimize consumption and slash energy bills.",
+    "kapp": "We provide a real-time dashboard that monitors your appliances, offering crystal-clear insights.  But we don't stop there. Our technology detects energy anomalies, empowering you to optimize your energy usage.",
     "hvac":"Our system leverages the power of Q-Learning, an AI algorithm, to ensure a comfortable haven for your patrons while keeping your energy costs under control.. No more battling chills or sweltering under the vents.",
     "fridge":"Our sensors vigilantly detect faults in your system.  The moment trouble arises, you'll be notified instantly.  Better yet, we'll even send an alert to maintenance  – a hands-free approach to keep your business running smoothly.",
-    "light":"Our reinforcement learning algorithm, acts like a sophisticated dimmer switch.  It constantly analyzes environmental factors and comfort levels to orchestrate the perfect lighting scheme, eliminating redundant usage while prioritizing both patron ease."
+    "light":"Our reinforcement learning algorithm, acts like a sophisticated switch.  It analyzes environmental factors and comfort levels to orchestrate the perfect lighting, eliminating redundant usage while prioritizing patron ease."
   }
 
   export const pricingPackages =[
@@ -256,13 +256,13 @@
   export const teamMembers = [
     {
       id: "team-1",
-      name: "Kaveri Priya Putti",
+      name: "Kaveri Priya",
       title: "Software Engineer",
       img: kpp,
     },
     {
       id: "team-2",
-      name: "Mohammed Fauzaan",
+      name: "Fauzaan Mohammed",
       title: "Backend Engineer",
       img: fauxzan,
     },

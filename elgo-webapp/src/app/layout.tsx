@@ -27,10 +27,9 @@ export default function RootLayout({
               <Navbar />
             </div>
           </div>
-          <div className="bg-primary w-full overflow-hidden">
-            <main>{children}</main>
-            <Footer />
-          </div>
+
+          <main>{children}</main>
+          <Footer />
         </body>
       </UserProvider>
     </html>

@@ -11,13 +11,20 @@ export default function Donut() {
         (chartRef.current as any).chart.destroy();
       }
 
-      const context = (chartRef.current as HTMLCanvasElement | null)?.getContext("2d");
+      const context = (
+        chartRef.current as HTMLCanvasElement | null
+      )?.getContext("2d");
 
       if (context) {
         const newChart = new Chart(context, {
           type: "doughnut",
           data: {
-            labels: ["Kitchen Appliances", "Air Conditioning", "Refrigeration", "Lighting"],
+            labels: [
+              "Kitchen Appliances",
+              "Air Conditioning",
+              "Refrigeration",
+              "Lighting",
+            ],
             datasets: [
               {
                 label: "% of Energy Consumption in Restaurants",
@@ -27,14 +34,12 @@ export default function Donut() {
                   "#8481DDff",
                   "#5752D1ff",
                   "#3C3D99ff",
-                  
                 ],
                 borderColor: [
                   "#FFFFFFa0",
                   "#FFFFFFa0",
                   "#FFFFFFa0",
                   "#FFFFFFa0",
-                  
                 ],
                 borderWidth: 0,
                 spacing: 3,
@@ -59,14 +64,21 @@ export default function Donut() {
   }, []);
   return (
     <div className="w-1/2 rounded-md bg-gradient-to-r from-slate-800 via-white-100 to-black p-5 ">
-        <div>
-            <h4 className="font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] mb-3">
-                    Device Consumption
-            </h4>
-        </div>
-        <div style={{ position: "relative", width: "40vw", height: "50vh" }} className=" flex justify-start">
-            <canvas ref={chartRef} />
-        </div>
+      <div>
+        <h4 className="font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] mb-3">
+          Device Consumption
+        </h4>
+      </div>
+      <div
+        style={{
+          position: "relative",
+          width: window.innerWidth <= 600 ? "80vw" : "40vw",
+          height: window.innerWidth <= 600 ? "40vh" : "50vh",
+        }}
+        className="donut-container flex justify-start"
+      >
+        <canvas ref={chartRef} />
+      </div>
     </div>
   );
 }

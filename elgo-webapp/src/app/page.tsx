@@ -11,13 +11,13 @@ import ThreeDeeModel from "./components/3dm";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 z-0">
+    <div className="bg-primary w-full pt-24 z-0 overflow-hidden">
       <div className={`bg-primary ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />
         </div>
       </div>
-      <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+      <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Business />
           <Billing />
@@ -28,6 +28,6 @@ export default function Home() {
           <CTA />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

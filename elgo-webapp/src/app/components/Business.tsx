@@ -13,20 +13,20 @@ interface FeatureCardProps {
 
 const FeatureCard = (props: FeatureCardProps) => (
   <div
-    className={`w-full flex flex-col sm:flex-row p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
+    className={`flex flex-row p-6 p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
       props.index !== features.length - 1 ? "mb-6" : "mb-0"
-    } feature-card`}
+    } feature-card `}
   >
-    <div className={`w-full sm:w-1/4 justify-start items-center flex-row m-3`}>
-      <h4 className="font-poppins font-semibold text-[30px] sm:text-[40px] leading-[43px] sm:leading-[53px]">
+    <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} m-3`}>
+      <h4 className="font-poppins font-semibold text-[25px] sm:text-[30px] leading-[43px] sm:leading-[53px]">
         {props.icon}
       </h4>
     </div>
-    <div className="w-full sm:w-1/2 flex flex-col">
-      <h4 className="font-poppins font-semibold text-[18px] leading-[23px] text-gradient mb-1 bg-gradient-to-r from-indigo-400 to-white inline-block text-transparent bg-clip-text">
+    <div className="flex-1 flex flex-col ml-3">
+      <h4 className="font-poppins font-semibold text-[18px] leading-[23.4px] mb-1 text-gradient bg-gradient-to-r from-indigo-400 to-white inline-block text-transparent bg-clip-text">
         {props.title}
       </h4>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[24px]">
+      <p className="font-poppins font-normal text-dimWhite text-[16px] sm:text-[16px] leading-[24px]">
         {props.content}
       </p>
     </div>
@@ -47,7 +47,6 @@ const Business = () => {
           F&B outlets in Asia use 4X more Energy per Meter<sup>2</sup> than
           office buildings affecting their bottom line by over 15%.
         </p>
-        
       </div>
       <div className={`${layout.sectionImg} flex-col`}>
         {features.map((feature, index) => (

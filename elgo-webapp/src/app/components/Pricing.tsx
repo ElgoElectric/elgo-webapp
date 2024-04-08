@@ -18,7 +18,7 @@ const PricingCard = (props: PricingCardProps) => (
   <div
     className={`bg-${
       props.elgoPackage ? "black" : "white"
-    } flex flex-col w-full sm:w-1/2 md:w-1/3 h-auto sm:h-auto md:h-auto rounded-[20px] p-4 mx-1 transition-all duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 ${
+    } flex flex-col w-full h-auto sm:h-auto md:h-auto rounded-[20px] p-4 mx-1 transition-all duration-200 ease-in-out hover:-translate-y-1 scale-98 hover:scale-103 mb-3 ${
       props.elgoPackage ? "border-[#56c210] border-[0.5px]" : ""
     }`}
   >
@@ -117,7 +117,16 @@ const PricingCard = (props: PricingCardProps) => (
 export default function Pricing() {
   return (
     <section id="pricing" className={layout.section}>
-      <div className={"w-[62%] " + layout.sectionInfoUpdated + " pr-6"}>
+      <div
+       style={{
+        position: "relative",
+        width: window.innerWidth <= 750 ? "100%" : "62%",
+      }}
+        className={
+          layout.sectionInfoUpdated +
+          " pr-6 overflow-auto scrollbar"
+        }
+      >
         <div className="flex flex-row">
           {pricingPackages.map((pricingPackage, index) => (
             <PricingCard key={index} {...pricingPackage} />
@@ -139,10 +148,10 @@ export default function Pricing() {
 
         <p className={`${styles.paragraph} max-w-[460px] mt-5`}>
           You read that right! Pay a share of only what you save. Our attractive
-          three tier pricing model ensures you don&apos;t have to worry about the
-          cost. We only charge you 50% of what you save, meaning you profit 50%
-          of what you save. Additional charges may apply based on customizations
-          to the base package. We got you covered.
+          three tier pricing model ensures you don&apos;t have to worry about
+          the cost. We only charge you 50% of what you save, meaning you profit
+          50% of what you save. Additional charges may apply based on
+          customizations to the base package. We got you covered.
         </p>
       </div>
     </section>

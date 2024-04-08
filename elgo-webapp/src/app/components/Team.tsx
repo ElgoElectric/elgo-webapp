@@ -1,3 +1,4 @@
+"use client"
 import Image, { StaticImageData } from "next/image";
 import styles, { layout } from "../constants/style";
 import { rmurarishetti } from "../../../public";
@@ -39,19 +40,9 @@ export default function Team() {
           a difference.
         </p>
       </div>
-      <div className={layout.sectionInfo}>
-        <div className="flex justify-between p-2">
-          {teamMembers.slice(0, 4).map((member, index) => (
-            <TeamCard
-              key={index}
-              name={member.name}
-              designation={member.title}
-              image={member.img}
-            />
-          ))}
-        </div>
-        <div className="flex justify-center p-5">
-        {teamMembers.slice(4).map((member, index) => (
+     <div className={styles.flexStart + " flex-col overflow-x-auto scrollbar md:w-full lg:w-1/2 xl:w-1/2 2xl:w-1/2"}>
+        <div className="flex justify-between items-center p-2">
+          {teamMembers.slice(0,7).map((member, index) => (
             <TeamCard
               key={index}
               name={member.name}
