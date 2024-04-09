@@ -7,109 +7,28 @@ export default function Footer() {
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="font-medium text-gray-900 text-base mb-3">
-                About
-              </h2>
-              <nav className="list-none mb-10 flex flex-col text-sm space-y-3 font-normal">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Company News
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Meet the Team
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Press Releases
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Roadmap
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="font-medium text-gray-900 text-base mb-3">
-                Company
+              <h2 className="font-medium text-emerald-800 text-base mb-3">
+                Product links
               </h2>
               <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Company News
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Meet the Team
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Press Releases
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Roadmap
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="font-medium text-gray-900 text-base mb-3">
-                Contact
-              </h2>
-              <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Get in Touch
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Feedback
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Feature Requests
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Roadmap
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="font-medium text-gray-900 text-base mb-3">
-                Developers
-              </h2>
-              <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="/report.pdf" target="_blank">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://www.github.com/ElgoElectric" target="_blank">
                     GitHub
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Press Releases
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://youtu.be/oXdVQFblgdk" target="_blank">
+                    Video
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Roadmap
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="/usermanual.pdf" target="_blank"> 
+                    User Manual
                   </a>
                 </li>
               </nav>
