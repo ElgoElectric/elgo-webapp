@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <div>
       <footer className="text-gray-800 w-4/5 mx-auto inter md:pt-24">
+        
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
