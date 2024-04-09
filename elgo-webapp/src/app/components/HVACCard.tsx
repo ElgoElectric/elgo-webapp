@@ -11,6 +11,7 @@ export default function HVACCard() {
   async function temperatureset(val: number[]) {
     var newTemp = 18 + val[0];
     setVal(val);
+    
     setTemperature(newTemp);
 
     const response = await fetch("https://elgo-backend.vercel.app/devices/hvac/getTemp");
