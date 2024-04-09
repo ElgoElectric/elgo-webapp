@@ -19,9 +19,9 @@ const Navbar = () => {
         <nav className={`${styles.paddingX} xl:max-w-full w-full fixed top-0 flex justify-between py-6 items-center navbar z-10 bg-black px-6`}>
           <div className={`w-1/2 flex justify-start`}>
             <Image src={logo} alt="hoobank" className="w-[54px] h-[52px]" />
-            <div className="font-poppins font-medium text-[24px] text-white ml-2 flex items-center">
+            <div className="font-poppins font-medium text-[24px] text-white hover:text-[#7ed957] ml-2 flex items-center">
               Elgo
-              <div className="font-poppins font-medium text-[24px] text-[#7ed957] flex items-center">
+              <div className="font-poppins font-medium text-[24px] text-[#7ed957] hover:text-white flex items-center">
                 Electric
               </div>
             </div>
@@ -33,7 +33,7 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-normal cursor-pointer text-[16px] ${
                   i === navLinks.length - 1 ? "mr-0" : "mr-10"
-                } text-white mr-10 ${
+                } text-white hover:text-lime-500 mr-10 ${
                   currentRoute === `/#${nav.id}`
                     ? "border-b-4 border-white"
                     : "border-b-4 border-transparent"
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <Link href={"/user/home"}>Dashboard</Link>
               </li>
             )}
-            <li className="font-poppins font-normal cursor-pointer text-[16px] text-white mr-10">
+            <li className="font-poppins font-normal cursor-pointer text-[16px] text-white hover:text-lime-500 mr-10">
               {!isLoading && !user && (
                 <Link href={"/api/auth/login"}>Sign In</Link>
               )}
