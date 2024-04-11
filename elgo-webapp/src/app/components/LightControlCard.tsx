@@ -13,11 +13,11 @@ export default function LightControlCard() {
   const [value, setValue] = useState<string>("");
 
   async function LightTransitionLeft(){
-    const currPosition = await fetch("http://54.160.134.98:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const currPosition = await fetch("http://3.210.42.3:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
 
-    const transitionPosition = await fetch(`http://54.160.134.98:3000/loglightLevel?lightLevel_current=0&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=0`);
+    const transitionPosition = await fetch(`http://3.210.42.3:3000/loglightLevel?lightLevel_current=0&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=0`);
     const succ = await transitionPosition.ok;
     if (!succ){
       console.log("Error Setting to 0.5");
@@ -26,11 +26,11 @@ export default function LightControlCard() {
   }
 
   async function LightTransitionCenter(){
-    const currPosition = await fetch("http://54.160.134.98:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const currPosition = await fetch("http://3.210.42.3:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
 
-    const transitionPosition = await fetch(`http://54.160.134.98:3000/loglightLevel?lightLevel_current=0.5&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
+    const transitionPosition = await fetch(`http://3.210.42.3:3000/loglightLevel?lightLevel_current=0.5&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
     const succ = await transitionPosition.ok;
     if (!succ){
       console.log("Error Setting to 0.5");
@@ -39,11 +39,11 @@ export default function LightControlCard() {
   }
 
   async function LightTransitionRight(){
-    const currPosition = await fetch("http://54.160.134.98:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const currPosition = await fetch("http://3.210.42.3:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
 
-    const transitionPosition = await fetch(`http://54.160.134.98:3000/loglightLevel?lightLevel_current=1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
+    const transitionPosition = await fetch(`http://3.210.42.3:3000/loglightLevel?lightLevel_current=1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=${CurrLightState}`);
     const succ = await transitionPosition.ok;
     if (!succ){
       console.log("Error Setting to 1");
@@ -52,7 +52,7 @@ export default function LightControlCard() {
   }
 
   async function LightResetLogic(){
-    const currPosition = await fetch("http://54.160.134.98:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+    const currPosition = await fetch("http://3.210.42.3:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
     const response = await currPosition.json();
     setCurrLightState(response.currentLightLevel);
     if(CurrLightState=="1"){
@@ -66,7 +66,7 @@ export default function LightControlCard() {
 
   useEffect(() => {
     async function GetLight(){
-      const currPosition = await fetch("http://54.160.134.98:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
+      const currPosition = await fetch("http://3.210.42.3:3000/loglightLevel?lightLevel_current=-1&plugID=shellyplusplugs-d4d4daec6c98&lightLevel_prev=-1");
       const response = await currPosition.json();
       setCurrLightState(response.currentLightLevel);
       if(CurrLightState=="1"){
