@@ -13,7 +13,7 @@ interface FeatureCardProps {
 
 const FeatureCard = (props: FeatureCardProps) => (
   <div
-    className={`flex flex-row p-6 p-6 rounded-[20px] bg-gradient-to-r hover:bg-gradient-to-l from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
+    className={`flex flex-row p-6 p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
       props.index !== features.length - 1 ? "mb-6" : "mb-0"
     } feature-card `}
   >

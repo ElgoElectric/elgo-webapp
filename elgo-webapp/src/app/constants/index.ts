@@ -59,7 +59,7 @@
       icon: "$0.33",
       title: "Energy Costs per Meal",
       content:
-        "An average restaurant spends about 33c on every meal they serve on energy.",
+        "An average restaurant spends about 33c on energy for every meal they serve.",
     },
   ];
   
@@ -218,9 +218,9 @@
 
   export const productDesc ={
     "kapp": "We provide a real-time dashboard that monitors your appliances, offering crystal-clear insights.  But we don't stop there. Our technology detects energy anomalies, empowering you to optimize your energy usage.",
-    "hvac":"Our system leverages the power of Q-Learning, an AI algorithm, to ensure a comfortable haven for your patrons while keeping your energy costs under control.. No more battling chills or sweltering under the vents.",
+    "hvac":"Our system leverages the power of Q-Learning, an AI algorithm, to ensure a comfortable haven for your patrons while keeping your energy costs under control. No more battling chills or sweltering under the vents.",
     "fridge":"Our sensors vigilantly detect faults in your system.  The moment trouble arises, you'll be notified instantly.  Better yet, we'll even send an alert to maintenance  – a hands-free approach to keep your business running smoothly.",
-    "light":"Our reinforcement learning algorithm, acts like a sophisticated switch.  It analyzes environmental factors and comfort levels to orchestrate the perfect lighting, eliminating redundant usage while prioritizing patron ease."
+    "light":"Our reinforcement learning algorithm acts like a sophisticated switch.  It analyzes environmental factors and comfort levels to orchestrate the perfect lighting, eliminating redundant usage while prioritizing patron ease."
   }
 
   export const pricingPackages =[
